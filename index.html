@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ballsorter: Sorting Puzzle</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="phone-img"></div>
+      <div class="phone-container">
+        <div class="start-menu" id="start-menu">
+          <img class="logo" src="./images/logo.webp" />
+          <div class="button_container">
+            <button onclick="startGame()" class="play_btn">
+              <img src="./images/menu_play_button.webp" />
+            </button>
+            <button class="download_btn">
+              <img src="./images/menu_dpwnload_button.webp" />
+            </button>
+          </div>
+          <div class="bottom_btns">
+            <div class="socmed">
+              <img src="./images/facebook.webp" />
+              <img src="./images/twitter.webp" />
+            </div>
+            <img class="setting" src="./images/setting.webp" />
+          </div>
+        </div>
+
+        <div class="game-screen" id="game-screen" style="display: none">
+          <div class="info">
+            <h1 id="timer">00:00</h1>
+            <div id="moves"></div>
+          </div>
+          <div class="game-container" id="game-container"></div>
+          <div class="bottom_btns">
+            <div class="socmed">
+              <img src="./images/facebook.webp" />
+              <img src="./images/twitter.webp" />
+            </div>
+            <img class="setting" src="./images/setting.webp" />
+          </div>
+        </div>
+        <div id="status">
+          <div class="starContainer">
+            <img id="star0" src="/images/victory_menu/star.webp" />
+            <img id="star1" src="/images/victory_menu/star.webp" />
+            <img id="star2" src="/images/victory_menu/star.webp" />
+          </div>
+          <div class="victory_menu_btns">
+            <button onclick="resetGame()" class="victory_play_btn">
+            </button>
+            <button class="victory_download_btn">
+            </button>
+          </div>
+        </div>
+        <div id="failstatus">
+          <p style="color: red; font-weight: bold"></p>
+          <div class="victory_menu_btns">
+            <button onclick="resetGame()" class="victory_play_btn">
+            </button>
+            <button class="victory_download_btn">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

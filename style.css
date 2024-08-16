@@ -1,0 +1,405 @@
+
+@font-face {
+    font-family: Toybox;
+    src: url("/fonts/TOYBOX.OTF");
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    top: 75px;
+    width: 100%;
+    min-height: 100px;
+    max-width: 225px;
+    background-image: url('/images/gamescreen/timer.webp');
+    background-repeat: no-repeat;
+    background-position: 50% 89%;
+    background-size: contain;
+}
+
+#timer {
+    font-size: 38px;
+    height: 100%;
+    font-family: Toybox;
+    color: white;
+    text-shadow: 0px 8px 10px #000000b6;
+}
+
+
+.container {
+    height: 815px;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.phone-container {
+    height: 810px;
+    overflow: hidden;
+    width: 400px;
+    /* border: 1px solid red; */
+    position: relative;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone-img {
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    background-image: url('./images/mobile_phone.webp');
+    background-position: center;
+    background-size: 425px 820px;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    z-index: 1;
+
+    
+}
+
+.start-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 60px;
+    text-align: center;
+    background-image: url('./images/menu_BG.webp');
+    background-size: cover;
+    width: 100%; 
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.logo {
+    width: 450px;
+    transform: translateY(50px);
+}
+
+.button_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 10px; */
+    transform: translateY(-100px);
+}
+
+
+.play_btn {
+    width: 300px;
+    height: 123px;
+    padding: 0;
+    margin: 0;
+    background: none;
+    outline: none;
+    border: none;
+
+}
+
+.play_btn img{
+    width: 300px;
+}
+
+.download_btn {
+    width: 220px;
+    padding: 0;
+    margin: 0;
+    background: none;
+    outline: none;
+    
+    border: none;
+}
+
+.download_btn img{
+    width: 220px;
+}
+
+.bottom_btns {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    position: absolute;
+    bottom:5px;
+}
+
+.socmed img {
+    width: 65px;
+}
+
+.socmed img:last-child {
+    transform: translateX(-12px);
+}
+
+.setting {
+    width: 120px;
+}
+
+
+.game-screen {
+    background-image: url('./images/gamescreen/ingame_BG.webp');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: initial;
+}
+
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 0px;
+    width: 400px;
+    margin-top: 180px;
+    margin-bottom: 20px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.tube {
+    width: 95px;
+
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding-bottom: 60px;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+}
+
+.ball-container .frontball, .ball-container .backball {
+    margin-top: -30px;
+    margin-bottom: -5px;
+
+}
+
+
+.tube::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: absolute;
+    transform: translateY(60px);
+
+    background-image: url("./images/gamescreen/pole.webp");
+    background-size: contain;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.tube.highlight {
+    /* background-color: #e0e0e0; */
+    background-color: none;
+}
+
+.frontball {
+    width: 100%;
+    height: 65px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    touch-action: none;
+    user-select: none;
+    z-index: 31; /* Lower z-index to be behind the tube */
+    position: relative; /* Ensure z-index is applied */
+    background-position: center;
+
+}
+.backball {
+    width: 100%;
+    height: 35px;
+    cursor: pointer;
+    margin: 2px auto;
+    transition: transform 0.2s;
+    touch-action: none;
+    user-select: none;
+    z-index: 0; /* Lower z-index to be behind the tube */
+    position: absolute; /* Ensure z-index is applied */
+    /* border: 1px solid blue; */
+    transform: translateY(-24%)
+}
+
+/* #containerball2 {
+    transform: translateY(-20px);
+} */
+
+/* .ball::before {
+    content: '';
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    border: 1px solid blue;
+    background-image: url("./images/gamescreen/donuts/donut_2_back.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translateZ(-123312312px)
+} */
+
+.ball:hover {
+    transform: scale(1.1);
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#status {
+    top: 15%;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    z-index: 100;
+    display: none;
+    height: 500px;
+    width: 95%;
+    background-image: url('/images/victory_menu/victory_menu.webp');
+    background-repeat: no-repeat;
+    background-position: 59% 50%;
+    background-size: 118%;
+    justify-content: center;
+    align-items: center;
+}
+
+#star1, #star2, #star3 {
+    visibility: hidden;
+}
+
+.starContainer {
+    transform: translate(0px, 58px);
+}
+
+#star1 {
+    width: 68px;
+    margin-left: 5px;
+    margin-right: 6px;
+}
+
+#star0, #star2 {
+    width: 60px;
+    transform: translateY(4px);
+}
+
+.reset {
+    z-index: 100;
+    position: absolute;
+}
+
+/* #fail {
+    position: absolute;
+    display: none;
+} */
+
+#failstatus {
+    top: 15%;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    z-index: 100;
+    display: none;
+    height: 500px;
+    width: 95%;
+    background-image: url('/images/victory_menu/fail_menu.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.button_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 10px; */
+    transform: translateY(-100px);
+}
+
+.victory_menu_btns {
+    position: absolute;
+    transform: scale(1.2) translate(0px, 180px);
+}
+
+
+.victory_play_btn {
+    width: 200px;
+    height: 90px;
+    padding: 0;
+    margin: 0;
+    background: none;
+    outline: none;
+    border: none;
+    background-image: url('/images/victory_menu/fail_victory_play_button.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transform: translateY(5px);
+
+}
+
+.victory_download_btn {
+    width: 200px;
+    height: 90px;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    outline: none;
+    background-image: url('/images/victory_menu/fail_victory_download_button.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#failstatus .victory_menu_btns {
+    
+}
+
+
