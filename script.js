@@ -129,6 +129,9 @@ function checkWinCondition() {
     }
   });
 
+  const statusElement = document.getElementById("status");
+  const failStatusElement = document.getElementById("failstatus");
+
   // Calculate elapsed time in seconds
   const endTime = new Date();
   const elapsedTime = (endTime - startTime) / 1000;
@@ -138,8 +141,11 @@ function checkWinCondition() {
   if (elapsedTime > 40) {
     console.log("Time exceeded 40 seconds");
     clearInterval(timerInterval);
-    document.getElementById("status").style.display = "none";
-    document.getElementById("failstatus").style.display = "block";
+    statusElement.classList.remove("active");
+    failStatusElement.style.display = "block";
+    setTimeout(() => {
+      failStatusElement.classList.add("active");
+    }, 10);
     return; // Stop further execution if the time limit is exceeded
   }
 
@@ -171,11 +177,20 @@ function checkWinCondition() {
       }
     }
 
-    document.getElementById("status").style.display = "flex";
+    statusElement.style.display = "flex";
+    setTimeout(() => {
+      statusElement.classList.add("active");
+    }, 10);
   } else {
-    document.getElementById("status").style.display = "none";
+    statusElement.classList.remove("active");
+    failStatusElement.classList.remove("active");
+    setTimeout(() => {
+      statusElement.style.display = "none";
+      failStatusElement.style.display = "none";
+    }, 500);
   }
 }
+
 
 
 
@@ -366,10 +381,16 @@ function resetGame() {
 
 function startGame() {
   document.getElementById("start-menu").style.display = "none";
-  document.getElementById("game-screen").style.display = "flex";
+  const gameScreen = document.getElementById("game-screen");
+  gameScreen.style.display = "flex";
+  
+  // Trigger animation
+  setTimeout(() => {
+    gameScreen.classList.add("active");
+  }, 10);
+
   resetGame();
 }
-
 // Initialize the game by showing the start menu
 document.getElementById("start-menu").style.display = "flex";
 document.getElementById("game-screen").style.display = "none";

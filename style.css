@@ -403,3 +403,28 @@ button {
 }
 
 
+/* Transition for the game screen */
+#game-screen {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  /* Transition for status and failstatus */
+  #status, #failstatus {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  /* Active state for game screen */
+  #game-screen.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  /* Active state for status and failstatus */
+  #status.active, #failstatus.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
