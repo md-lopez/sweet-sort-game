@@ -142,7 +142,7 @@ function checkWinCondition() {
     console.log("Time exceeded 40 seconds");
     clearInterval(timerInterval);
     statusElement.classList.remove("active");
-    failStatusElement.style.display = "block";
+    failStatusElement.style.display = "flex";
     setTimeout(() => {
       failStatusElement.classList.add("active");
     }, 10);
@@ -207,7 +207,7 @@ function startTimer() {
     if (elapsedTime > 40) {
       clearInterval(timerInterval);
       document.getElementById("status").style.display = "none";
-      document.getElementById("failstatus").style.display = "block";
+      document.getElementById("failstatus").style.display = "flex";
       return;
     }
   }, 1000);
@@ -394,3 +394,20 @@ function startGame() {
 // Initialize the game by showing the start menu
 document.getElementById("start-menu").style.display = "flex";
 document.getElementById("game-screen").style.display = "none";
+
+
+function toggleLandscape() {
+  
+  const mainContainer = document.querySelector('.container')
+  const container = document.querySelector('.phone-container');
+  //phone container
+  const phone = document.querySelector('.phone-img');
+  const startmenu = document.querySelector('.start-menu');
+
+  container.classList.toggle('landscape');
+  mainContainer.classList.toggle('landscape');
+  phone.classList.toggle('landscape');
+
+  // Start Menu Style
+  startmenu.classList.toggle('landscape')
+}
