@@ -374,6 +374,7 @@ button {
   justify-content: center;
   align-items: center;
   background-color: #00000094;
+
 }
 
 #failstatus img {
@@ -461,18 +462,22 @@ button {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+/* Active state for status and failstatus */
+#status.active,
+#failstatus.active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
 /* Active state for game screen */
 #game-screen.active {
   opacity: 1;
   transform: scale(1);
 }
 
-/* Active state for status and failstatus */
-#status.active,
-#failstatus.active {
-  opacity: 1;
-  transform: translateY(0);
-}
+
 
 /* LANDSCAPE MODE */
 
@@ -595,5 +600,5 @@ button {
   }
   
   .tube.bounce-animation .ball-container {
-    animation: bounce 0.5s ease infinite;
+    animation: bounce 0.5s ease;
   }

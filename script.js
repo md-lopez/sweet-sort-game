@@ -148,14 +148,12 @@ function checkWinCondition() {
   // Calculate elapsed time in seconds
   const endTime = new Date();
   const elapsedTime = (endTime - startTime) / 1000;
-  console.log("Elapsed Time: ", elapsedTime);
 
   // Check if the time exceeds 40 seconds
   if (elapsedTime > 40) {
-    console.log("Time exceeded 40 seconds");
     clearInterval(timerInterval);
     statusElement.classList.remove("active");
-    failStatusElement.style.display = "flex";
+    failStatusElement.style.display = "flex"; // Make sure it's visible before animating
     setTimeout(() => {
       failStatusElement.classList.add("active");
     }, 10);
@@ -207,6 +205,7 @@ function checkWinCondition() {
 
 
 
+
 function startTimer() {
   startTime = new Date();
   timerInterval = setInterval(() => {
@@ -216,15 +215,24 @@ function startTimer() {
     const seconds = String(Math.floor(elapsedTime % 60)).padStart(2, "0");
     document.getElementById("timer").textContent = `${minutes}:${seconds}`;
 
-    // Stop the game if elapsed time exceeds 40 seconds
     if (elapsedTime > 40) {
       clearInterval(timerInterval);
-      document.getElementById("status").style.display = "none";
-      document.getElementById("failstatus").style.display = "flex";
+
+      // Handle status and failstatus elements
+      const statusElement = document.getElementById("status");
+      const failStatusElement = document.getElementById("failstatus");
+
+      statusElement.style.display = "none"; // Hide status element
+      failStatusElement.style.display = "flex"; // Show failstatus element
+      setTimeout(() => {
+        failStatusElement.classList.add("active"); // Apply the active class after a short delay
+      }, 10);
+
       return;
     }
   }, 1000);
 }
+
 
 
 function updateZIndexes(tube) {
