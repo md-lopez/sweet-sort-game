@@ -106,6 +106,13 @@ function touchEnd(event) {
   }
 }
 
+function triggerBounceAnimation(tube) {
+  // Check if the tube already has the bounce-animation class
+  if (!tube.classList.contains("bounce-animation")) {
+    tube.classList.add("bounce-animation");
+  }
+}
+
 function checkWinCondition() {
   const tubes = document.querySelectorAll(".tube");
   let allSorted = true;
@@ -119,12 +126,18 @@ function checkWinCondition() {
         return;
       }
       const firstBallColor = tube.firstElementChild.getAttribute("data-color");
+      let isTubeSorted = true;
       for (let i = 0; i < tube.childElementCount; i++) {
         const currentBallColor = tube.children[i].getAttribute("data-color");
         if (currentBallColor !== firstBallColor) {
           allSorted = false;
+          isTubeSorted = false;
           return;
         }
+      }
+      if (isTubeSorted) {
+        // Trigger the bounce animation only once per tube
+        triggerBounceAnimation(tube);
       }
     }
   });

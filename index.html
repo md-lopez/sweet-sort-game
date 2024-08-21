@@ -16,6 +16,7 @@
             <button onclick="startGame()" class="play_btn">
               <img src="./images/menu_play_button.webp" />
             </button>
+            <div class="glove"></div>
             <button class="download_btn">
               <img src="./images/menu_dpwnload_button.webp" />
             </button>
@@ -44,21 +45,24 @@
           </div>
         </div>
         <div id="status">
-          <div class="starContainer">
-            <img id="star0" src="/images/victory_menu/star.webp" />
-            <img id="star1" src="/images/victory_menu/star.webp" />
-            <img id="star2" src="/images/victory_menu/star.webp" />
+          <div class="status_overlay">
+            <img class="victory_img" src="/images/victory_menu/victory_menu.webp" />
+            <div class="starContainer">
+              <img id="star0" src="/images/victory_menu/star.webp" />
+              <img id="star1" src="/images/victory_menu/star.webp" />
+              <img id="star2" src="/images/victory_menu/star.webp" />
+            </div>
           </div>
           <div class="victory_menu_btns">
-            <button onclick="resetGame()" class="victory_play_btn"></button>
+            <!-- <button onclick="resetGame()" class="victory_play_btn"></button> -->
             <button class="victory_download_btn"></button>
           </div>
         </div>
         <div id="failstatus">
-          <img src="/images/victory_menu/fail_menu.webp"/>
+          <img src="/images/victory_menu/fail_menu.webp" />
           <p style="color: red; font-weight: bold"></p>
           <div class="victory_menu_btns">
-            <button onclick="resetGame()" class="victory_play_btn"></button>
+            <!-- <button onclick="resetGame()" class="victory_play_btn"></button> -->
             <button class="victory_download_btn"></button>
           </div>
         </div>
