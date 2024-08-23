@@ -342,20 +342,20 @@ function resetGame() {
     {
       id: "ball13",
       color: "orange",
-      frontImage: "/images/gamescreen/donuts/donut_5_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_5_back.webp",
+      frontImage: "/images/gamescreen/donuts/donut_6_front.webp",
+      backImage: "/images/gamescreen/donuts/donut_6_back.webp",
     },
     {
       id: "ball14",
       color: "orange",
-      frontImage: "/images/gamescreen/donuts/donut_5_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_5_back.webp",
+      frontImage: "/images/gamescreen/donuts/donut_6_front.webp",
+      backImage: "/images/gamescreen/donuts/donut_6_back.webp",
     },
     {
       id: "ball15",
       color: "orange",
-      frontImage: "/images/gamescreen/donuts/donut_5_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_5_back.webp",
+      frontImage: "/images/gamescreen/donuts/donut_6_front.webp",
+      backImage: "/images/gamescreen/donuts/donut_6_back.webp",
     },
   ];
 
@@ -376,6 +376,7 @@ function resetGame() {
     frontball.className = "frontball";
     frontball.style.backgroundImage = `url(${shuffledBalls[i].frontImage})`;
     frontball.style.backgroundSize = "cover";
+    
 
     ballContainer.appendChild(backball);
     ballContainer.appendChild(frontball);
