@@ -8,6 +8,23 @@
   src: url("/fonts/ITCAvantGardePro-Bold.otf");
 }
 
+@font-face {
+  font-family: Antonio-Bold;
+  src: url("/fonts/Antonio-Bold.ttf");
+}
+@font-face {
+  font-family: Antonio-Light;
+  src: url("/fonts/Antonio-Light.ttf");
+}
+@font-face {
+  font-family: Antonio-Medium;
+  src: url("/fonts/Antonio-Medium.ttf");
+}
+@font-face {
+  font-family: Antonio-Regular;
+  src: url("/fonts/Antonio-Regular.ttf");
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -129,12 +146,12 @@ footer {
 }
 
 footer h1, footer h5 {
-  font-family: "ITCAvantGardePro";
-  font-weight: 300;
+  font-family: "Antonio-Bold";
 }
 
 footer p {
   color: grey;
+  font-family: "Antonio-Regular"
 }
 
 footer .iteration h5 {

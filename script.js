@@ -91,53 +91,70 @@ function dragLeave(event) {
 }
 
 function touchStart(event) {
-  event.preventDefault();
-  const ball = event.target;
-  const tube = ball.parentElement;
-  if (tube.lastElementChild !== ball) {
+  const ballContainer = event.target.closest(".ball-container");
+  const tube = ballContainer.parentElement;
+  if (tube.firstElementChild !== ballContainer) {
+    event.preventDefault(); // Prevent default action if the ball is not at the top
     return;
   }
-  ball.classList.add("dragging");
+
+  const donutColor = ballContainer.getAttribute("data-color");
+
+  const img = preloadedImages[donutColor];
+
   const touch = event.touches[0];
-  ball.style.left = `${touch.clientX - ball.offsetWidth / 2}px`;
-  ball.style.top = `${touch.clientY - ball.offsetHeight / 2}px`;
+  const dragImage = img.cloneNode(true);
+  dragImage.style.position = 'absolute';
+  dragImage.style.left = `${touch.clientX - 35}px`;
+  dragImage.style.top = `${touch.clientY - 25}px`;
+  dragImage.style.pointerEvents = 'none';
+  dragImage.id = 'drag-image';
+  document.body.appendChild(dragImage);
+
+  ballContainer.classList.add("dragging");
 }
 
 function touchMove(event) {
   event.preventDefault();
-  const ball = event.target;
   const touch = event.touches[0];
-  ball.style.left = `${touch.clientX - ball.offsetWidth / 2}px`;
-  ball.style.top = `${touch.clientY - ball.offsetHeight / 2}px`;
+  const dragImage = document.getElementById('drag-image');
+  if (dragImage) {
+    dragImage.style.left = `${touch.clientX - 35}px`;
+    dragImage.style.top = `${touch.clientY - 25}px`;
+  }
 }
 
 function touchEnd(event) {
   event.preventDefault();
-  const ball = event.target;
-  ball.classList.remove("dragging");
-  ball.style.left = "";
-  ball.style.top = "";
+  const ballContainer = event.target.closest(".ball-container");
+  ballContainer.classList.remove("dragging");
+
+  const dragImage = document.getElementById('drag-image');
+  if (dragImage) {
+    dragImage.remove(); // Remove the drag image after touch ends
+  }
 
   const touch = event.changedTouches[0];
   const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
   const targetTube = targetElement.closest(".tube");
 
   if (targetTube) {
-    const lastBallInTargetTube = targetTube.lastElementChild;
+    const firstBallInTargetTube = targetTube.firstElementChild;
     if (
-      !lastBallInTargetTube ||
-      lastBallInTargetTube.style.backgroundImage === ball.style.backgroundImage
+      !firstBallInTargetTube ||
+      firstBallInTargetTube.querySelector(".frontball").style.backgroundImage ===
+        ballContainer.querySelector(".frontball").style.backgroundImage
     ) {
-      if (targetTube.childElementCount < 4) {
-        targetTube.appendChild(ball);
+      if (targetTube.childElementCount < 5) {
+        ballContainer.classList.remove("dragging");
+        targetTube.insertBefore(ballContainer, targetTube.firstChild);
+        updateZIndexes(targetTube); // Update z-index after drop
         moveCount++;
-        // document.getElementById("moves").textContent = `Moves: ${moveCount}`;
         checkWinCondition();
       }
     }
   }
 }
-
 function triggerBounceAnimation(tube) {
   // Check if the tube already has the bounce-animation class
   if (!tube.classList.contains("bounce-animation")) {
