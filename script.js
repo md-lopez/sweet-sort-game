@@ -6,15 +6,47 @@ function allowDrop(event) {
   event.preventDefault();
 }
 
+const donutImageMap = {
+  red: "/images/wholedonuts/wholedonut_1.png",
+  blue: "/images/wholedonuts/wholedonut_2.png",
+  green: "/images/wholedonuts/wholedonut_3.png",
+  yellow: "/images/wholedonuts/wholedonut_4.png",
+  orange: "/images/wholedonuts/wholedonut_6.png",
+  purple: "/images/wholedonuts/wholedonut_6.png",
+};
+
+const preloadedImages = {};
+
+// Preload the images when the game initializes
+function preloadImages() {
+  for (const color in donutImageMap) {
+    const img = new Image();
+    img.src = donutImageMap[color];
+    preloadedImages[color] = img;
+  }
+}
+
 function dragStart(event) {
   const ballContainer = event.target.closest(".ball-container");
   const tube = ballContainer.parentElement;
   if (tube.firstElementChild !== ballContainer) {
+    event.preventDefault();
     return;
   }
   event.dataTransfer.setData("text", ballContainer.id);
+
+  const donutColor = ballContainer.getAttribute("data-color");
+
+  const img = preloadedImages[donutColor];
+
+  // Adjust the offset values
+  event.dataTransfer.setDragImage(img, 35, 25);
   setTimeout(() => ballContainer.classList.add("dragging"), 0);
 }
+function dragEnd(event) {
+  event.target.classList.remove("dragging");
+}
+
 
 function dragEnd(event) {
   event.target.classList.remove("dragging");
@@ -405,12 +437,15 @@ function startGame() {
   document.getElementById("start-menu").style.display = "none";
   const gameScreen = document.getElementById("game-screen");
   gameScreen.style.display = "flex";
-  
+
   // Trigger animation
   setTimeout(() => {
     gameScreen.classList.add("active");
   }, 10);
 
+  // Preload images before starting the game
+  preloadImages();
+  
   resetGame();
 }
 // Initialize the game by showing the start menu
@@ -425,11 +460,50 @@ function toggleLandscape() {
   //phone container
   const phone = document.querySelector('.phone-img');
   const startmenu = document.querySelector('.start-menu');
+  const landscapeBtn = document.querySelector('.landscape')
+  const portraitBtn = document.querySelector('.portrait')
 
-  container.classList.toggle('landscape');
-  mainContainer.classList.toggle('landscape');
-  phone.classList.toggle('landscape');
+  container.classList.add('landscape');
+  mainContainer.classList.add('landscape');
+  phone.classList.add('landscape');
 
   // Start Menu Style
-  startmenu.classList.toggle('landscape')
+  startmenu.classList.add('landscape')
+  const svgland = landscapeBtn.querySelector('svg');
+  if (svgland) {
+    svgland.style.color = '#ff3413';
+  }
+  const svgport = portraitBtn.querySelector('svg');
+  if (svgport) {
+    svgport.style.color = '#9d9d9d';
+  }
+}
+
+function togglePortrait() {
+  
+  const mainContainer = document.querySelector('.container')
+  const container = document.querySelector('.phone-container');
+  //phone container
+  const phone = document.querySelector('.phone-img');
+  const startmenu = document.querySelector('.start-menu');
+
+  container.classList.remove('landscape');
+  mainContainer.classList.remove('landscape');
+  phone.classList.remove('landscape');
+
+  // Start Menu Style
+  startmenu.classList.remove('landscape')
+
+
+
+  const landscapeBtn = document.querySelector('.landscape')
+  const portraitBtn = document.querySelector('.portrait')
+  const svgland = landscapeBtn.querySelector('svg');
+  if (svgland) {
+    svgland.style.color = '#9d9d9d';
+  }
+  const svgport = portraitBtn.querySelector('svg');
+  if (svgport) {
+    svgport.style.color = '#ff3413';
+  }
 }

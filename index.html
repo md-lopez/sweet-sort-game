@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <header class="header">
+      <img class="hpllogo" src="/images/navLogo.png" alt="logo" />
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="#show reel">Home</a>
+          <div class="nav-clip"></div>
+        </li>
+        <li class="nav-item">
+          <a href="#projects">Projects</a>
+          <div class="nav-clip"></div>
+        </li>
+        <li class="nav-item">
+          <a href="#events">News</a>
+          <div class="nav-clip"></div>
+        </li>
+        <li class="nav-item nav-item-active">
+          <a href="#contact">Contact Us</a>
+        </li>
+      </ul>
+    </header>
+    <div class="verticalBG"></div>
     <div class="container">
       <div class="phone-img"></div>
       <div class="phone-container">
@@ -46,7 +67,10 @@
         </div>
         <div id="status">
           <div class="status_overlay">
-            <img class="victory_img" src="/images/victory_menu/victory_menu.webp" />
+            <img
+              class="victory_img"
+              src="/images/victory_menu/victory_menu.webp"
+            />
             <div class="starContainer">
               <img id="star0" src="/images/victory_menu/star.webp" />
               <img id="star1" src="/images/victory_menu/star.webp" />
@@ -69,17 +93,113 @@
       </div>
     </div>
 
+    <footer>
+      <div class="game-title">
+        <h1>sweet sort</h1>
+        <p>playable ads demo</p>
+      </div>
+      <div class="iteration-container">
+        <div class="iteration">
+          <button><img src="/images/orangeArrow.svg" /></button>
+          <h5>Iteration Item</h5>
+          <button><img src="/images/orangeArrow.svg" /></button>
+        </div>
+        <p>iteration</p>
+      </div>
+      <div class="device-orientation-container">
+        <div class="device-orientation">
+          <button class="landscape" onclick="toggleLandscape()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="56"
+              viewBox="0 0 28 56"
+            >
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: none;
+                    stroke: currentColor;
+                    stroke-width: 4px;
+                    fill-rule: evenodd;
+                  }
+
+                  .cls-2 {
+                    fill: currentColor;
+                  }
+                </style>
+              </defs>
+              <path
+                class="cls-1"
+                d="M8.031,2.594H19.938a6,6,0,0,1,6,6V48a6,6,0,0,1-6,6H8.031a6,6,0,0,1-6-6V8.594A6,6,0,0,1,8.031,2.594Z"
+              />
+              <rect
+                id="Rectangle_988_copy_2"
+                data-name="Rectangle 988 copy 2"
+                class="cls-2"
+                x="10.313"
+                y="6.875"
+                width="7.344"
+                height="1.844"
+                rx="0.918"
+                ry="0.918"
+              />
+            </svg>
+          </button>
+          <button class="portrait" onclick="togglePortrait()"><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="28"
+            height="56"
+            viewBox="0 0 28 56"
+          >
+            <defs>
+              <style>
+                .cls-1 {
+                  fill: none;
+                  stroke: currentColor;
+                  stroke-width: 4px;
+                  fill-rule: evenodd;
+                }
+
+                .cls-2 {
+                  fill: currentColor;
+                }
+              </style>
+            </defs>
+            <path
+              class="cls-1"
+              d="M8.031,2.594H19.938a6,6,0,0,1,6,6V48a6,6,0,0,1-6,6H8.031a6,6,0,0,1-6-6V8.594A6,6,0,0,1,8.031,2.594Z"
+            />
+            <rect
+              id="Rectangle_988_copy_2"
+              data-name="Rectangle 988 copy 2"
+              class="cls-2"
+              x="10.313"
+              y="6.875"
+              width="7.344"
+              height="1.844"
+              rx="0.918"
+              ry="0.918"
+            />
+          </svg></button>
+        </div>
+        <p>device/orientation</p>
+      </div>
+    </footer>
+    <!-- 
     <button onclick="toggleLandscape()" class="landscape_btn">
       Toggle Orientation
-    </button>
+    </button> -->
 
     <script src="script.js"></script>
     <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- jQuery UI -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<!-- jQuery UI CSS -->
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- jQuery UI CSS -->
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
   </body>
 </html>

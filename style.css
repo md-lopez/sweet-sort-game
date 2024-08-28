@@ -3,6 +3,11 @@
   src: url("/fonts/TOYBOX.OTF");
 }
 
+@font-face {
+  font-family: ITCAvantGardePro;
+  src: url("/fonts/ITCAvantGardePro-Bold.otf");
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -15,11 +20,210 @@ body {
   padding: 10px;
   box-sizing: border-box;
   overflow: hidden;
-
+  position: relative;
+/* 
   background-image: url("./images/tempBG.webp");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 1920px 980px;
+  background-size: 1920px 980px; */
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  box-sizing: border-box;
+  padding: 0 97px;
+  background-color: black;
+}
+
+.header .hpllogo {
+  cursor: pointer;
+}
+
+
+.nav-list {
+  display: none; /* Hidden by default */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 685px;
+  height: 100%;
+  text-transform: uppercase;
+  color: #a7a7a7;
+  font-size: 12.2px;
+  letter-spacing: 0.2em;
+}
+
+.nav-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-item .nav-clip {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  background-color: #666666;
+  width: 0;
+  transform: translateY(15px);
+  transition: all 0.1s ease;
+}
+
+.nav-item:hover .nav-clip,
+.nav-item-active .nav-clip {
+  width: 19px;
+}
+
+.nav-item-active {
+  color: #ff3413;
+}
+
+@media (min-width: 1024px) {
+  .nav-list {
+    display: flex;
+  }
+}
+
+.verticalBG {
+  z-index: 0;
+  top: 80px;
+  position: absolute;
+  width: 100%;
+  height: 75%;
+
+  background-image: url("/images/verticalBG.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-bottom: 1px solid #66666659;
+}
+
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 16.3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 0 97px 0 97px;
+}
+
+footer h1, footer h5 {
+  font-family: "ITCAvantGardePro";
+  font-weight: 300;
+}
+
+footer p {
+  color: grey;
+}
+
+footer .iteration h5 {
+  text-transform: capitalize;
+  letter-spacing: 0.1em;
+  font-size: 18px;
+}
+
+footer h1, footer p {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  height: 10px;
+}
+
+footer .game-title { 
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+}
+
+
+.iteration-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iteration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 42px;
+  height: 40px;
+}
+
+.iteration button {
+  margin: 0;
+  background-color: none;
+  background: none;
+  border: none;
+}
+
+.iteration button:last-of-type {
+  transform: rotate(180deg);
+}
+
+.device-orientation-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.device-orientation {
+  display: flex;
+  column-gap: 40px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 130px;
+  height: 56px;
+}
+
+.device-orientation button{
+  background: none;
+  border: none;
+  height: 56px;
+  width: 28px;
+  position: relative;
+}
+
+.device-orientation button svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.portrait svg {
+  color:#ff3413
+}
+
+.landscape svg {
+  color: #9d9d9d;
+}
+
+.device-orientation button:first-of-type svg {
+  transform: rotate(-90deg) translateX(-4px);
+  right: 0;
+  bottom: 0;
+  position: relative;
 }
 
 h1 {
@@ -56,7 +260,7 @@ h1 {
   width: 600px;
   display: flex;
   justify-content: center;
-  transform: scale(0.8) translateY(-8%);
+  transform: scale(0.8) translate(2%, -6.5%);
 }
 
 .phone-container {
@@ -68,6 +272,10 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
+
+
 }
 
 .phone-img {
@@ -98,6 +306,9 @@ h1 {
   height: 100%;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
+
+
 }
 
 .logo {
@@ -112,6 +323,9 @@ h1 {
   align-items: center;
   /* gap: 10px; */
   transform: translateY(-100px);
+  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
+
+
 }
 
 .play_btn {
@@ -122,6 +336,9 @@ h1 {
   background: none;
   outline: none;
   border: none;
+  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
+
+
 }
 
 .play_btn img {
@@ -159,6 +376,9 @@ h1 {
   outline: none;
 
   border: none;
+
+  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
+
 }
 
 .download_btn img {
@@ -225,12 +445,25 @@ h1 {
   user-select: none;
   position: relative;
   z-index: 1;
+  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
+
+
 }
+
+.ball-container {
+  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
+
+
+}
+
 
 .ball-container .frontball,
 .ball-container .backball {
   margin-top: -30px;
   margin-bottom: -5px;
+  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
+
+  
 }
 
 .tube::after {
@@ -602,4 +835,8 @@ button {
   
   .tube.bounce-animation .ball-container {
     animation: bounce 0.5s ease;
+  }
+
+
+  .phone-container {
   }
