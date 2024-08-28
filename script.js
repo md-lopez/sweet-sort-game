@@ -2,6 +2,17 @@ let timerInterval;
 let startTime;
 let moveCount = 0;
 
+// SOUND EFFECTS
+const dragStartSound = new Audio("/sound/put_down.mp3");
+const dragEndSound = new Audio("/sound/put_down.mp3");
+const victorySound = new Audio("/sound/victory.mp3");
+const failedSound = new Audio("/sound/Failed.wav");
+
+function playSound(sound) {
+  sound.currentTime = 0;
+  sound.play();
+}
+
 function allowDrop(event) {
   event.preventDefault();
 }
@@ -42,14 +53,12 @@ function dragStart(event) {
   // Adjust the offset values
   event.dataTransfer.setDragImage(img, 35, 25);
   setTimeout(() => ballContainer.classList.add("dragging"), 0);
+
+  playSound(dragStartSound);
 }
 function dragEnd(event) {
   event.target.classList.remove("dragging");
-}
-
-
-function dragEnd(event) {
-  event.target.classList.remove("dragging");
+  playSound(dragEndSound);
 }
 
 function drop(event) {
@@ -104,20 +113,21 @@ function touchStart(event) {
 
   const touch = event.touches[0];
   const dragImage = img.cloneNode(true);
-  dragImage.style.position = 'absolute';
+  dragImage.style.position = "absolute";
   dragImage.style.left = `${touch.clientX - 35}px`;
   dragImage.style.top = `${touch.clientY - 25}px`;
-  dragImage.style.pointerEvents = 'none';
-  dragImage.id = 'drag-image';
+  dragImage.style.pointerEvents = "none";
+  dragImage.id = "drag-image";
   document.body.appendChild(dragImage);
 
   ballContainer.classList.add("dragging");
+  playSound(dragStartSound);
 }
 
 function touchMove(event) {
   event.preventDefault();
   const touch = event.touches[0];
-  const dragImage = document.getElementById('drag-image');
+  const dragImage = document.getElementById("drag-image");
   if (dragImage) {
     dragImage.style.left = `${touch.clientX - 35}px`;
     dragImage.style.top = `${touch.clientY - 25}px`;
@@ -129,7 +139,7 @@ function touchEnd(event) {
   const ballContainer = event.target.closest(".ball-container");
   ballContainer.classList.remove("dragging");
 
-  const dragImage = document.getElementById('drag-image');
+  const dragImage = document.getElementById("drag-image");
   if (dragImage) {
     dragImage.remove(); // Remove the drag image after touch ends
   }
@@ -142,7 +152,8 @@ function touchEnd(event) {
     const firstBallInTargetTube = targetTube.firstElementChild;
     if (
       !firstBallInTargetTube ||
-      firstBallInTargetTube.querySelector(".frontball").style.backgroundImage ===
+      firstBallInTargetTube.querySelector(".frontball").style
+        .backgroundImage ===
         ballContainer.querySelector(".frontball").style.backgroundImage
     ) {
       if (targetTube.childElementCount < 5) {
@@ -154,6 +165,7 @@ function touchEnd(event) {
       }
     }
   }
+  playSound(dragEndSound);
 }
 function triggerBounceAnimation(tube) {
   // Check if the tube already has the bounce-animation class
@@ -170,7 +182,8 @@ function checkWinCondition() {
   tubes.forEach((tube) => {
     if (tube.childElementCount > 0) {
       nonEmptyTubes++;
-      if (tube.childElementCount !== 3) { // Adjust to match your tube capacity
+      if (tube.childElementCount !== 3) {
+        // Adjust to match your tube capacity
         allSorted = false;
         return;
       }
@@ -203,6 +216,9 @@ function checkWinCondition() {
     clearInterval(timerInterval);
     statusElement.classList.remove("active");
     failStatusElement.style.display = "flex"; // Make sure it's visible before animating
+    const themeSong = document.getElementById("theme-song");
+    themeSong.pause();
+    playSound(failedSound);
     setTimeout(() => {
       failStatusElement.classList.add("active");
     }, 10);
@@ -240,6 +256,7 @@ function checkWinCondition() {
     statusElement.style.display = "flex";
     setTimeout(() => {
       statusElement.classList.add("active");
+      playSound(victorySound);
     }, 10);
   } else {
     statusElement.classList.remove("active");
@@ -250,10 +267,6 @@ function checkWinCondition() {
     }, 500);
   }
 }
-
-
-
-
 
 function startTimer() {
   startTime = new Date();
@@ -270,19 +283,20 @@ function startTimer() {
       // Handle status and failstatus elements
       const statusElement = document.getElementById("status");
       const failStatusElement = document.getElementById("failstatus");
+      const themeSong = document.getElementById("theme-song");
 
       statusElement.style.display = "none"; // Hide status element
       failStatusElement.style.display = "flex"; // Show failstatus element
       setTimeout(() => {
         failStatusElement.classList.add("active"); // Apply the active class after a short delay
+        playSound(failedSound);
+        themeSong.pause()
       }, 10);
 
       return;
     }
   }, 1000);
 }
-
-
 
 function updateZIndexes(tube) {
   const ballContainers = tube.querySelectorAll(".ball-container");
@@ -425,7 +439,6 @@ function resetGame() {
     frontball.className = "frontball";
     frontball.style.backgroundImage = `url(${shuffledBalls[i].frontImage})`;
     frontball.style.backgroundSize = "cover";
-    
 
     ballContainer.appendChild(backball);
     ballContainer.appendChild(frontball);
@@ -449,7 +462,6 @@ function resetGame() {
   startTimer();
   document.getElementById("failstatus").style.display = "none";
 }
-
 function startGame() {
   document.getElementById("start-menu").style.display = "none";
   const gameScreen = document.getElementById("game-screen");
@@ -462,65 +474,63 @@ function startGame() {
 
   // Preload images before starting the game
   preloadImages();
-  
+  const themeSong = document.getElementById("theme-song");
+
+  themeSong.play();
+
   resetGame();
 }
 // Initialize the game by showing the start menu
 document.getElementById("start-menu").style.display = "flex";
 document.getElementById("game-screen").style.display = "none";
 
-
 function toggleLandscape() {
-  
-  const mainContainer = document.querySelector('.container')
-  const container = document.querySelector('.phone-container');
+  const mainContainer = document.querySelector(".container");
+  const container = document.querySelector(".phone-container");
   //phone container
-  const phone = document.querySelector('.phone-img');
-  const startmenu = document.querySelector('.start-menu');
-  const landscapeBtn = document.querySelector('.landscape')
-  const portraitBtn = document.querySelector('.portrait')
+  const phone = document.querySelector(".phone-img");
+  const startmenu = document.querySelector(".start-menu");
+  const landscapeBtn = document.querySelector(".landscape");
+  const portraitBtn = document.querySelector(".portrait");
 
-  container.classList.add('landscape');
-  mainContainer.classList.add('landscape');
-  phone.classList.add('landscape');
+  container.classList.add("landscape");
+  mainContainer.classList.add("landscape");
+  phone.classList.add("landscape");
 
   // Start Menu Style
-  startmenu.classList.add('landscape')
-  const svgland = landscapeBtn.querySelector('svg');
+  startmenu.classList.add("landscape");
+  const svgland = landscapeBtn.querySelector("svg");
   if (svgland) {
-    svgland.style.color = '#ff3413';
+    svgland.style.color = "#ff3413";
   }
-  const svgport = portraitBtn.querySelector('svg');
+  const svgport = portraitBtn.querySelector("svg");
   if (svgport) {
-    svgport.style.color = '#9d9d9d';
+    svgport.style.color = "#9d9d9d";
   }
 }
 
 function togglePortrait() {
-  
-  const mainContainer = document.querySelector('.container')
-  const container = document.querySelector('.phone-container');
+  const mainContainer = document.querySelector(".container");
+  const container = document.querySelector(".phone-container");
   //phone container
-  const phone = document.querySelector('.phone-img');
-  const startmenu = document.querySelector('.start-menu');
+  const phone = document.querySelector(".phone-img");
+  const startmenu = document.querySelector(".start-menu");
 
-  container.classList.remove('landscape');
-  mainContainer.classList.remove('landscape');
-  phone.classList.remove('landscape');
+  container.classList.remove("landscape");
+  mainContainer.classList.remove("landscape");
+  phone.classList.remove("landscape");
 
   // Start Menu Style
-  startmenu.classList.remove('landscape')
+  startmenu.classList.remove("landscape");
 
-
-
-  const landscapeBtn = document.querySelector('.landscape')
-  const portraitBtn = document.querySelector('.portrait')
-  const svgland = landscapeBtn.querySelector('svg');
+  const landscapeBtn = document.querySelector(".landscape");
+  const portraitBtn = document.querySelector(".portrait");
+  const svgland = landscapeBtn.querySelector("svg");
   if (svgland) {
-    svgland.style.color = '#9d9d9d';
+    svgland.style.color = "#9d9d9d";
   }
-  const svgport = portraitBtn.querySelector('svg');
+  const svgport = portraitBtn.querySelector("svg");
   if (svgport) {
-    svgport.style.color = '#ff3413';
+    svgport.style.color = "#ff3413";
   }
 }

@@ -581,6 +581,26 @@ button {
   margin: auto;
 }
 
+#status .victory_menu_glow {
+  width: 430px;
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  animation: regular-beat 3s infinite ease-in-out;
+}
+
+@keyframes regular-beat {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+}
+
 .starContainer {
   transform: translate(6px, 55px);
   /* transform: translate(0px, 58px); */
@@ -816,6 +836,10 @@ button {
 }
 
 .landscape.container #status .victory_img {
+  width: 320px;
+}
+
+.landscape.container #status .victory_menu_glow {
   width: 320px;
 }
 
