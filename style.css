@@ -31,7 +31,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #f0f0f0;
+  background-color: #111111;
   margin: 0;
   font-family: Arial, sans-serif;
   padding: 10px;
@@ -141,12 +141,13 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f0f0f0;
+  background-color: #111111;
   padding: 0 97px 0 97px;
 }
 
 footer h1, footer h5 {
   font-family: "Antonio-Bold";
+  color: #e1e1e1;
 }
 
 footer p {
