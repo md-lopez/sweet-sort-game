@@ -282,7 +282,7 @@ h1 {
 }
 
 .phone-container {
-  height: 810px;
+  height: 808px;
   overflow: hidden;
   width: 400px;
   position: relative;
@@ -783,7 +783,7 @@ button {
 
 .landscape.phone-container {
   height: 400px !important;
-  width: 815px !important;
+  width: 812px !important;
 }
 
 .landscape.start-menu {
