@@ -1,28 +1,28 @@
 @font-face {
   font-family: Toybox;
-  src: url("/fonts/TOYBOX.OTF");
+  src: url("./fonts/TOYBOX.OTF");
 }
 
 @font-face {
   font-family: ITCAvantGardePro;
-  src: url("/fonts/ITCAvantGardePro-Bold.otf");
+  src: url("./fonts/ITCAvantGardePro-Bold.otf");
 }
 
 @font-face {
   font-family: Antonio-Bold;
-  src: url("/fonts/Antonio-Bold.ttf");
+  src: url("./fonts/Antonio-Bold.ttf");
 }
 @font-face {
   font-family: Antonio-Light;
-  src: url("/fonts/Antonio-Light.ttf");
+  src: url("./fonts/Antonio-Light.ttf");
 }
 @font-face {
   font-family: Antonio-Medium;
-  src: url("/fonts/Antonio-Medium.ttf");
+  src: url("./fonts/Antonio-Medium.ttf");
 }
 @font-face {
   font-family: Antonio-Regular;
-  src: url("/fonts/Antonio-Regular.ttf");
+  src: url("./fonts/Antonio-Regular.ttf");
 }
 
 body {
@@ -122,7 +122,7 @@ body {
   width: 100%;
   height: 75%;
 
-  background-image: url("/images/verticalBG.webp");
+  background-image: url("./images/verticalBG.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -260,7 +260,7 @@ h1 {
   width: 100%;
   min-height: 100px;
   max-width: 225px;
-  background-image: url("/images/gamescreen/timer.webp");
+  background-image: url("./images/gamescreen/timer.webp");
   background-repeat: no-repeat;
   background-position: 50% 89%;
   background-size: contain;
@@ -667,7 +667,7 @@ button {
   background: none;
   outline: none;
   border: none;
-  background-image: url("/images/victory_menu/fail_victory_play_button.webp");
+  background-image: url("./images/victory_menu/fail_victory_play_button.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -682,7 +682,7 @@ button {
   background: none;
   border: none;
   outline: none;
-  background-image: url("/images/victory_menu/fail_victory_download_button.webp");
+  background-image: url("./images/victory_menu/fail_victory_download_button.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

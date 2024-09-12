@@ -18,12 +18,12 @@ function allowDrop(event) {
 }
 
 const donutImageMap = {
-  red: "/images/wholedonuts/wholedonut_1.png",
-  blue: "/images/wholedonuts/wholedonut_2.png",
-  green: "/images/wholedonuts/wholedonut_3.png",
-  yellow: "/images/wholedonuts/wholedonut_4.png",
-  orange: "/images/wholedonuts/wholedonut_6.png",
-  purple: "/images/wholedonuts/wholedonut_6.png",
+  red: "./images/wholedonuts/wholedonut_1.png",
+  blue: "./images/wholedonuts/wholedonut_2.png",
+  green: "./images/wholedonuts/wholedonut_3.png",
+  yellow: "./images/wholedonuts/wholedonut_4.png",
+  orange: "./images/wholedonuts/wholedonut_6.png",
+  purple: "./images/wholedonuts/wholedonut_6.png",
 };
 
 const preloadedImages = {};
@@ -333,92 +333,92 @@ function resetGame() {
     {
       id: "ball1",
       color: "red",
-      frontImage: "/images/gamescreen/donuts/donut_1_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_1_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_1_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_1_back.webp",
     },
     {
       id: "ball2",
       color: "blue",
-      frontImage: "/images/gamescreen/donuts/donut_2_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_2_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_2_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_2_back.webp",
     },
     {
       id: "ball3",
       color: "green",
-      frontImage: "/images/gamescreen/donuts/donut_3_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_3_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_3_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_3_back.webp",
     },
     {
       id: "ball4",
       color: "red",
-      frontImage: "/images/gamescreen/donuts/donut_1_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_1_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_1_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_1_back.webp",
     },
     {
       id: "ball5",
       color: "blue",
-      frontImage: "/images/gamescreen/donuts/donut_2_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_2_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_2_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_2_back.webp",
     },
     {
       id: "ball6",
       color: "green",
-      frontImage: "/images/gamescreen/donuts/donut_3_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_3_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_3_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_3_back.webp",
     },
     {
       id: "ball7",
       color: "red",
-      frontImage: "/images/gamescreen/donuts/donut_1_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_1_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_1_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_1_back.webp",
     },
     {
       id: "ball8",
       color: "blue",
-      frontImage: "/images/gamescreen/donuts/donut_2_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_2_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_2_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_2_back.webp",
     },
     {
       id: "ball9",
       color: "green",
-      frontImage: "/images/gamescreen/donuts/donut_3_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_3_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_3_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_3_back.webp",
     },
     {
       id: "ball10",
       color: "yellow",
-      frontImage: "/images/gamescreen/donuts/donut_4_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_4_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_4_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_4_back.webp",
     },
     {
       id: "ball11",
       color: "yellow",
-      frontImage: "/images/gamescreen/donuts/donut_4_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_4_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_4_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_4_back.webp",
     },
     {
       id: "ball12",
       color: "yellow",
-      frontImage: "/images/gamescreen/donuts/donut_4_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_4_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_4_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_4_back.webp",
     },
     {
       id: "ball13",
       color: "orange",
-      frontImage: "/images/gamescreen/donuts/donut_6_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_6_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_6_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_6_back.webp",
     },
     {
       id: "ball14",
       color: "orange",
-      frontImage: "/images/gamescreen/donuts/donut_6_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_6_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_6_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_6_back.webp",
     },
     {
       id: "ball15",
       color: "orange",
-      frontImage: "/images/gamescreen/donuts/donut_6_front.webp",
-      backImage: "/images/gamescreen/donuts/donut_6_back.webp",
+      frontImage: "./images/gamescreen/donuts/donut_6_front.webp",
+      backImage: "./images/gamescreen/donuts/donut_6_back.webp",
     },
   ];
 
@@ -544,7 +544,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("darkMode") === "enabled") {
     document.body.classList.add("dark-mode");
     document.getElementById("verticalBG").style.opacity = "0";
-    document.getElementById("hpllogo").src = "/images/navLogoDark.png";
+    document.getElementById("hpllogo").src = "./images/navLogoDark.png";
     document.querySelector("footer").classList.add("dark-mode");
     toggleSwitch.checked = true;
   }
@@ -555,23 +555,23 @@ document.addEventListener("DOMContentLoaded", () => {
       // Activate dark mode and save all settings to localStorage
       document.body.classList.add("dark-mode");
       document.getElementById("verticalBG").style.opacity = "0";
-      document.getElementById("hpllogo").src = "/images/navLogoDark.png";
+      document.getElementById("hpllogo").src = "./images/navLogoDark.png";
       document.querySelector("footer").classList.add("dark-mode");
 
       localStorage.setItem("darkMode", "enabled");
       localStorage.setItem("verticalBGOpacity", "0");
-      localStorage.setItem("logoSrc", "/images/navLogoDark.png");
+      localStorage.setItem("logoSrc", "./images/navLogoDark.png");
       localStorage.setItem("footerDarkMode", "enabled");
     } else {
       // Deactivate dark mode and save the settings back to the default
       document.body.classList.remove("dark-mode");
       document.getElementById("verticalBG").style.opacity = "1";
-      document.getElementById("hpllogo").src = "/images/navLogo.png";
+      document.getElementById("hpllogo").src = "./images/navLogo.png";
       document.querySelector("footer").classList.remove("dark-mode");
 
       localStorage.setItem("darkMode", "disabled");
       localStorage.setItem("verticalBGOpacity", "1");
-      localStorage.setItem("logoSrc", "/images/navLogo.png");
+      localStorage.setItem("logoSrc", "./images/navLogo.png");
       localStorage.setItem("footerDarkMode", "disabled");
     }
   });
