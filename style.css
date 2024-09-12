@@ -916,7 +916,7 @@ body.dark-mode {
   bottom: 4px;
   background-color: white;
   transition: 0.3s;
-  background-image: url("/images/orangeMoon.png");
+  background-image: url("./images/orangeMoon.png");
   background-repeat: no-repeat;
   background-position: center;
 }
