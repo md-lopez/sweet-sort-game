@@ -3,31 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sweet Sort: Sorting Puzzle</title>
+    <title>HPL | Playable Ads - Sweet Sort</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png"/>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="header">
-      <img class="hpllogo" src="/images/navLogo.png" alt="logo" />
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a href="#show reel">Home</a>
-          <div class="nav-clip"></div>
-        </li>
-        <li class="nav-item">
-          <a href="#projects">Projects</a>
-          <div class="nav-clip"></div>
-        </li>
-        <li class="nav-item">
-          <a href="#events">News</a>
-          <div class="nav-clip"></div>
-        </li>
-        <li class="nav-item nav-item-active">
-          <a href="#contact">Contact Us</a>
-        </li>
-      </ul>
+      <img class="hpllogo" id="hpllogo" src="/images/navLogo.png" alt="logo" />
+      <div class="switch-container">
+        <label class="switch">
+          <input type="checkbox" id="nightModeToggle">
+          <span class="slider round"></span>
+        </label>
+      </div>
     </header>
-    <div class="verticalBG"></div>
+    <div class="verticalBG" id="verticalBG">
+      <div class="game-title-mobile">
+        <h1>sweet sort</h1>
+        <p>playable ads demo</p></div>
+      </div>
+    </div>
     <div class="container">
       <div class="phone-img"></div>
       <div class="phone-container">
@@ -105,10 +100,10 @@
       <div class="iteration-container">
         <div class="iteration">
           <button><img src="/images/orangeArrow.svg" /></button>
-          <h5>Iteration Item</h5>
+          <h5>Version 1.00</h5>
           <button><img src="/images/orangeArrow.svg" /></button>
         </div>
-        <p>iteration</p>
+        <p>Version</p>
       </div>
       <div class="device-orientation-container">
         <div class="device-orientation">

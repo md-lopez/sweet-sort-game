@@ -290,7 +290,7 @@ function startTimer() {
       setTimeout(() => {
         failStatusElement.classList.add("active"); // Apply the active class after a short delay
         playSound(failedSound);
-        themeSong.pause()
+        themeSong.pause();
       }, 10);
 
       return;
@@ -534,3 +534,45 @@ function togglePortrait() {
     svgport.style.color = "#ff3413";
   }
 }
+
+// Dark mode toggle
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleSwitch = document.getElementById("nightModeToggle");
+
+  // Check if dark mode is already enabled
+  if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+    document.getElementById("verticalBG").style.opacity = "0";
+    document.getElementById("hpllogo").src = "/images/navLogoDark.png";
+    document.querySelector("footer").classList.add("dark-mode");
+    toggleSwitch.checked = true;
+  }
+
+  // Toggle night mode
+  toggleSwitch.addEventListener("change", () => {
+     if (toggleSwitch.checked) {
+      // Activate dark mode and save all settings to localStorage
+      document.body.classList.add("dark-mode");
+      document.getElementById("verticalBG").style.opacity = "0";
+      document.getElementById("hpllogo").src = "/images/navLogoDark.png";
+      document.querySelector("footer").classList.add("dark-mode");
+
+      localStorage.setItem("darkMode", "enabled");
+      localStorage.setItem("verticalBGOpacity", "0");
+      localStorage.setItem("logoSrc", "/images/navLogoDark.png");
+      localStorage.setItem("footerDarkMode", "enabled");
+    } else {
+      // Deactivate dark mode and save the settings back to the default
+      document.body.classList.remove("dark-mode");
+      document.getElementById("verticalBG").style.opacity = "1";
+      document.getElementById("hpllogo").src = "/images/navLogo.png";
+      document.querySelector("footer").classList.remove("dark-mode");
+
+      localStorage.setItem("darkMode", "disabled");
+      localStorage.setItem("verticalBGOpacity", "1");
+      localStorage.setItem("logoSrc", "/images/navLogo.png");
+      localStorage.setItem("footerDarkMode", "disabled");
+    }
+  });
+});

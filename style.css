@@ -38,7 +38,7 @@ body {
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
-/* 
+  /* 
   background-image: url("./images/tempBG.webp");
   background-repeat: no-repeat;
   background-position: center;
@@ -57,13 +57,11 @@ body {
   height: 80px;
   box-sizing: border-box;
   padding: 0 97px;
-  background-color: black;
 }
 
 .header .hpllogo {
   cursor: pointer;
 }
-
 
 .nav-list {
   display: none; /* Hidden by default */
@@ -131,7 +129,6 @@ body {
   border-bottom: 1px solid #66666659;
 }
 
-
 footer {
   position: absolute;
   bottom: 0;
@@ -145,13 +142,14 @@ footer {
   padding: 0 97px 0 97px;
 }
 
-footer h1, footer h5 {
+footer h1,
+footer h5 {
   font-family: "Antonio-Bold";
 }
 
 footer p {
   color: grey;
-  font-family: "Antonio-Regular"
+  font-family: "Antonio-Regular";
 }
 
 footer .iteration h5 {
@@ -160,18 +158,20 @@ footer .iteration h5 {
   font-size: 18px;
 }
 
-footer h1, footer p {
+footer h1,
+footer p {
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  height: 10px;
+  height: 25px;
 }
 
-footer .game-title { 
+footer .game-title {
   display: flex;
   flex-direction: column;
-  height: 150px;
+  height: 100%;
+  margin-top: 10px;
+  box-sizing: border-box;
 }
-
 
 .iteration-container {
   display: flex;
@@ -192,6 +192,9 @@ footer .game-title {
   background-color: none;
   background: none;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .iteration button:last-of-type {
@@ -214,7 +217,7 @@ footer .game-title {
   height: 56px;
 }
 
-.device-orientation button{
+.device-orientation button {
   background: none;
   border: none;
   height: 56px;
@@ -229,7 +232,7 @@ footer .game-title {
 }
 
 .portrait svg {
-  color:#ff3413
+  color: #ff3413;
 }
 
 .landscape svg {
@@ -290,9 +293,7 @@ h1 {
   justify-content: center;
   align-items: center;
 
-  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
-
-
+  cursor: url("./images/glove_cursor.png"), auto !important; /* Replace with your image path */
 }
 
 .phone-img {
@@ -323,9 +324,7 @@ h1 {
   height: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
-
-
+  cursor: url("./images/glove_cursor.png"), auto !important; /* Replace with your image path */
 }
 
 .logo {
@@ -340,9 +339,7 @@ h1 {
   align-items: center;
   /* gap: 10px; */
   transform: translateY(-100px);
-  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
-
-
+  cursor: url("./images/glove_cursor.png"), auto !important; /* Replace with your image path */
 }
 
 .play_btn {
@@ -353,9 +350,7 @@ h1 {
   background: none;
   outline: none;
   border: none;
-  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
-
-
+  cursor: url("./images/glove_cursor.png"), auto !important; /* Replace with your image path */
 }
 
 .play_btn img {
@@ -394,8 +389,7 @@ h1 {
 
   border: none;
 
-  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
-
+  cursor: url("./images/glove_cursor.png"), auto !important; /* Replace with your image path */
 }
 
 .download_btn img {
@@ -462,25 +456,18 @@ h1 {
   user-select: none;
   position: relative;
   z-index: 1;
-  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
-
-
+  cursor: url("./images/glove_cursor.png"), auto !important; /* Replace with your image path */
 }
 
 .ball-container {
-  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
-
-
+  cursor: url("./images/glove_cursor.png"), auto !important; /* Replace with your image path */
 }
-
 
 .ball-container .frontball,
 .ball-container .backball {
   margin-top: -30px;
   margin-bottom: -5px;
-  cursor: url('./images/glove_cursor.png'), auto !important; /* Replace with your image path */
-
-  
+  cursor: url("./images/glove_cursor.png"), auto !important; /* Replace with your image path */
 }
 
 .tube::after {
@@ -593,7 +580,8 @@ button {
 }
 
 @keyframes regular-beat {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(-50%, -50%) scale(0.9);
   }
   50% {
@@ -644,7 +632,6 @@ button {
   justify-content: center;
   align-items: center;
   background-color: #00000094;
-
 }
 
 #failstatus img {
@@ -705,12 +692,13 @@ button {
 }
 
 @keyframes beat {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 #failstatus .victory_menu_btns {
@@ -740,14 +728,11 @@ button {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-
 /* Active state for game screen */
 #game-screen.active {
   opacity: 1;
   transform: scale(1);
 }
-
-
 
 /* LANDSCAPE MODE */
 
@@ -864,20 +849,178 @@ button {
   transform: translateY(4px);
 }
 
-
 @keyframes bounce {
-    0%, 100% {
-      margin-bottom:initial;
-    }
-    50% {
-      margin-bottom: 5px;
-    }
+  0%,
+  100% {
+    margin-bottom: initial;
+  }
+  50% {
+    margin-bottom: 5px;
+  }
+}
+
+.tube.bounce-animation .ball-container {
+  animation: bounce 0.5s ease;
+}
+
+.phone-container {
+}
+
+/* Dark Mode */
+
+/* Night mode styles */
+body.dark-mode {
+  background-color: rgb(17, 17, 17);
+  color: #e0e0e0;
+}
+
+/* Switch styling */
+.switch-container {
+  display: flex;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 32px;
+  margin-right: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.3s;
+  background-image: url("/images/orangeMoon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input:checked + .slider {
+  background-color: #ff3413;
+}
+
+input:checked + .slider:before {
+  transform: translateX(32px);
+}
+
+.round {
+  border-radius: 20px;
+}
+
+footer.dark-mode {
+  background-color: rgb(17, 17, 17);
+}
+
+.verticalBG.dark-mode {
+  opacity: 0;
+}
+
+/* MEDIA QUERIES */
+
+.game-title-mobile {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  gap: 0;
+  margin-top: 20px;
+  padding: 0;
+  font-family: Antonio;
+
+  text-transform: uppercase;
+}
+
+.game-title-mobile h1 {
+  margin: 0;
+}
+
+.game-title-mobile p {
+  color: grey;
+  margin: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    transform: scale(0.5) translateY(-5%);
+  }
+
+  .landscape.container {  
+    transform: scale(0.5) translateY(-8%);
+  }
+
+  .header {
+    padding: 50px;
+  }
+
+  footer {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    transform: translateY(-15%);
+  }
+
+  footer .game-title {
+    display: none;
+  }
+
+  .iteration-container {
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  .iteration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0px;
+  }
+
+  .device-orientation {
+    display: flex;
+    column-gap: 40px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 130px;
+    height: 56px;
+    transform-origin: center;
+    transform: scale(0.6) translateY(-50%);
   }
   
-  .tube.bounce-animation .ball-container {
-    animation: bounce 0.5s ease;
+  .device-orientation-container p {
+    transform: translateY(-100%);
+
   }
 
-
-  .phone-container {
+  .game-title-mobile {
+    visibility: visible;
   }
+  
+}
